@@ -8,7 +8,7 @@ namespace LAB05_TINOCO_DAEA.Models
 {
     public class Cliente
     {
-        string id {  get; set; }
+        string idCliente {  get; set; }
         string nombreCompañia { get; set; }
         string nombreContacto {  get; set; }
         string ciudad {  get; set; }
@@ -16,10 +16,10 @@ namespace LAB05_TINOCO_DAEA.Models
 
         public Cliente(string id, string nomCom, string nomCont, string ciudad, string pais) 
         {
-            this.ciudad = ciudad;
-            this.id = id;
-            this.nombreContacto = nomCont;
+            this.idCliente = id;
             this.nombreCompañia = nomCom;
+            this.nombreContacto = nomCont;
+            this.ciudad = ciudad;
             this.pais = pais;
         }
     }

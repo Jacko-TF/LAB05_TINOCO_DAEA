@@ -5,17 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LAB05_TINOCO_DAEA"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Window1" Height="800" Width="800">
     <Grid>
-        <StackPanel>
-            <Button Margin="2" Click="Button_Click">LISTAR CLIENTES</Button>
-            <ScrollViewer  Width="800" Height="400">
-                <DataGrid 
-                    AutoGenerateColumns="False"
-                    x:Name="dgClients"
-                    >
-                </DataGrid>
-            </ScrollViewer>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="750" Width="750">
+
+            <StackPanel>
+
+                <Button Margin="2" Click="Button_Click" >Listar Productos</Button>
+
+                <ScrollViewer  Width="750" Height="300" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <DataGrid 
+                x:Name="dgProductos" 
+                Margin="2">
+                    </DataGrid>
+                </ScrollViewer>
+
+            </StackPanel>
+
+            <StackPanel>
+
+                <Button Margin="2" Click="Button_Click_1">Listar Categorias</Button>
+
+                <ScrollViewer  Width="750" Height="300" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <DataGrid 
+                x:Name="dgCategorias" 
+                Margin="2">
+                    </DataGrid>
+                </ScrollViewer>
+
+            </StackPanel>
+
+
+            <StackPanel>
+                <Button Margin="2" Click="Button_Click_2" >Listar Clientes</Button>
+            </StackPanel>
+            
         </StackPanel>
     </Grid>
 </Window>

@@ -13,8 +13,11 @@
                 <TextBlock Margin="2">INSERTAR CLIENTES</TextBlock>
                 
                 <TextBlock Margin="2">Id cliente</TextBlock>
-
-                <TextBox x:Name="txtId" Margin="2" Width="200" MaxLength="5"></TextBox>
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="txtId" Margin="2" Width="50" MaxLength="5"></TextBox>
+                    <Button Margin="2" Click="Button_Click_3" >ELIMINAR</Button>
+                </StackPanel>
 
                 <TextBlock Margin="2">Nombre Compañia</TextBlock>
 
@@ -56,18 +59,19 @@
 
                 <TextBox x:Name="txtFax" Margin="2" Width="200"></TextBox>
 
-                <Button Margin="2" Click="Button_Click_1">GRABAR</Button>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Margin="2" Click="Button_Click_1">GRABAR</Button>
+                    <Button Margin="2" Click="Button_Click_2" >ACTUALIZAR</Button>
+                </StackPanel>
 
             </StackPanel>
-            <StackPanel>
+            <StackPanel Margin="10">
                 <Button Margin="2" Click="Button_Click">LISTAR CLIENTES</Button>
-                <ScrollViewer  Width="500" Height="480">
                     <DataGrid 
-                        AutoGenerateColumns="True"
                         x:Name="dgClients" 
+                        Width="500" Height="480"
                         >
                     </DataGrid>
-                </ScrollViewer>
             </StackPanel>
         </StackPanel>
     </Grid>
