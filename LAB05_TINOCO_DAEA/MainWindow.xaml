@@ -67,11 +67,8 @@
             </StackPanel>
             <StackPanel Margin="10">
                 <Button Margin="2" Click="Button_Click">LISTAR CLIENTES</Button>
-                    <DataGrid 
-                        x:Name="dgClients" 
-                        Width="500" Height="480"
-                        >
-                    </DataGrid>
+                <DataGrid x:Name="dgClients" Height="500"  Width="500" SelectionChanged="dgClients_SelectionChanged"/>
+
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -4,23 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LAB05_TINOCO_DAEA.Models
+namespace LAB05_TINOCO_DAEA
 {
     public class Cliente
     {
-        string idCliente {  get; set; }
-        string nombreCompañia { get; set; }
-        string nombreContacto {  get; set; }
-        string ciudad {  get; set; }
-        string pais { get; set; }
-
-        public Cliente(string id, string nomCom, string nomCont, string ciudad, string pais) 
+        public string idCliente {  get; set; }
+        public string nombreCompañia { get; set; }
+        public string nombreContacto { get; set; }
+        public string cargoContacto { get; set; }
+        public string direccion {  get; set; }
+        public string telefono {  get; set; }
+        
+        public Cliente (string idCliente, string nombreCompañia,
+            string nombreContacto, string cargoContacto, string direccion, 
+            string telefono)
         {
-            this.idCliente = id;
-            this.nombreCompañia = nomCom;
-            this.nombreContacto = nomCont;
-            this.ciudad = ciudad;
-            this.pais = pais;
+            this.idCliente = idCliente;
+            this.nombreCompañia = nombreCompañia;
+            this.nombreContacto = nombreContacto;
+            this.cargoContacto = cargoContacto;
+            this.direccion = direccion;
+            this.telefono = telefono;
         }
     }
 }

@@ -1,19 +1,7 @@
-﻿using LAB05_TINOCO_DAEA.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using LAB04_TINOCO_DAEA.models;
 
 namespace LAB05_TINOCO_DAEA
@@ -114,33 +102,26 @@ namespace LAB05_TINOCO_DAEA
         {
 
             List<Cliente> clientes = new List<Cliente>();
-
             try
             {
                 SqlConnection connection = new SqlConnection(DBConnection.getCadenaConexion());
-
                 connection.Open();
 
                 SqlCommand command = new SqlCommand("USP_ListClients", connection);
 
-                command.CommandType = CommandType.StoredProcedure;
-
                 SqlDataReader reader = command.ExecuteReader();
-
                 while (reader.Read())
                 {
-                    string id = reader.GetString("idCliente");
-                    string nomCom = reader.GetString("NombreCompañia");
-                    string nomCont = reader.GetString("NombreContacto");
-                    string ciudad = reader.GetString("Ciudad");
-                    string pais = reader.GetString("Pais");
+                    string idCliente = reader.GetString("idCliente");
+                    string nombreCompañia = reader.GetString("NombreCompañia");
+                    string nombreContacto = reader.GetString("NombreContacto");
+                    string cargoContacto = reader.GetString("CargoContacto");
+                    string direccion = reader.GetString("Direccion");
+                    string telefono = reader.GetString("Telefono");
 
-                    clientes.Add(new Cliente(id, nomCont, nomCont, ciudad, pais));
+                    clientes.Add(new Cliente(idCliente, nombreCompañia, nombreContacto, cargoContacto, direccion, telefono));
                 }
-
                 connection.Close();
-
-
                 dgCategorias.ItemsSource = clientes;
 
             }

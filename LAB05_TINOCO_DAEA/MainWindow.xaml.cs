@@ -1,16 +1,7 @@
-﻿using LAB05_TINOCO_DAEA.Models;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LAB05_TINOCO_DAEA
 {
@@ -27,31 +18,27 @@ namespace LAB05_TINOCO_DAEA
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             List<Cliente> clientes = new List<Cliente>();
-
             try
             {
                 SqlConnection connection = new SqlConnection(DBConnection.getCadenaConexion());
-
                 connection.Open();
 
                 SqlCommand command = new SqlCommand("USP_ListClients", connection);
 
                 SqlDataReader reader = command.ExecuteReader();
-
                 while (reader.Read())
                 {
-                    string id = reader.GetString("idCliente");
-                    string nomCom = reader.GetString("NombreCompañia");
-                    string nomCont = reader.GetString("NombreContacto");
-                    string ciudad = reader.GetString("Ciudad");
-                    string pais = reader.GetString("Pais");
+                    string idCliente = reader.GetString("idCliente");
+                    string nombreCompañia = reader.GetString("NombreCompañia");
+                    string nombreContacto = reader.GetString("NombreContacto");
+                    string cargoContacto = reader.GetString("CargoContacto");
+                    string direccion = reader.GetString("Direccion");
+                    string telefono = reader.GetString("Telefono");
 
-                    clientes.Add(new Cliente(id, nomCont, nomCont, ciudad, pais));
+                    clientes.Add(new Cliente(idCliente, nombreCompañia, nombreContacto, cargoContacto, direccion, telefono));
                 }
-
                 connection.Close();
                 dgClients.ItemsSource = clientes;
-
             }
             catch (Exception ex)
             {
@@ -189,6 +176,20 @@ namespace LAB05_TINOCO_DAEA
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void dgClients_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Cliente client = (Cliente)dgClients.SelectedItem;
+            if (client != null)
+            {
+                txtId.Text = client.idCliente;
+                txtNombreCompañia.Text = client.nombreCompañia;
+                txtNombreContacto.Text = client.nombreContacto;
+                txtCargoContacto.Text = client.cargoContacto;
+                txtDireccion.Text = client.direccion;
+        
             }
         }
     }
